@@ -14,3 +14,6 @@ target/
 
 # Visual Studio Code junk
 .vs/
+
+# Ignore .gitignore
+*.gitignore
