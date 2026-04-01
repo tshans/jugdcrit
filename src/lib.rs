@@ -12,7 +12,7 @@ pub fn main() {
     skyline::install_hook!(crate::hooks::forecastui::set_battle_info_hook);
     skyline::install_hook!(crate::hooks::helpmanager::help_manager_add_hook);
 
-    println!("judgcrit (formula #{}) successfully loaded.", crate::hooks::combatdetails::CRITICAL_FACTOR);
+    println!("judgcrit successfully loaded.");
 
 
     std::panic::set_hook(Box::new(|info| {
