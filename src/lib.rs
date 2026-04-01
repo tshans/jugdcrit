@@ -2,12 +2,6 @@ pub mod engagelib;
 pub mod unitylib;
 pub mod hooks;
 
-// Published?
-//          GameBanana description/pictures
-//          Readme file for github
-//          Publish code to github
-
-
 #[skyline::main(name = "judgcrit")]
 pub fn main() {
     skyline::install_hook!(crate::hooks::aicalculations::calculate_indication_hook);
