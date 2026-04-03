@@ -2,6 +2,8 @@ pub mod engagelib;
 pub mod unitylib;
 pub mod hooks;
 
+const VERSION: String = "1.0.0".to_string();
+
 #[skyline::main(name = "judgcrit")]
 pub fn main() {
     skyline::install_hook!(crate::hooks::aicalculations::calculate_indication_hook);
@@ -12,8 +14,7 @@ pub fn main() {
     skyline::install_hook!(crate::hooks::forecastui::set_battle_info_hook);
     skyline::install_hook!(crate::hooks::helpmanager::help_manager_add_hook);
 
-    println!("judgcrit successfully loaded.");
-
+    println!("judgcrit v{} successfully loaded.", VERSION);
 
     std::panic::set_hook(Box::new(|info| {
         let location = info.location().unwrap();
@@ -27,7 +28,8 @@ pub fn main() {
             },
         };
         let err_msg = format!(
-            "judgcrit has panicked at '{}' with the following message:\n{}\0",
+            "judgcrit v{} has panicked at '{}' with the following message:\n{}\0",
+            VERSION,
             location,
             msg
         );
