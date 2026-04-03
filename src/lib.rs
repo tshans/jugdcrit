@@ -2,7 +2,7 @@ pub mod engagelib;
 pub mod unitylib;
 pub mod hooks;
 
-const VERSION: String = "1.0.0".to_string();
+const VERSION: &'static str = "1.0.0";
 
 #[skyline::main(name = "judgcrit")]
 pub fn main() {
