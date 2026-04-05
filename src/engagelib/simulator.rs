@@ -39,14 +39,9 @@ pub struct AISimulatorBase {
 }
 
 // Derived Classes
-#[repr(C)] // #[unity::class("App", "AIBattleSimulator.Indication")]
+#[unity::class("", "Indication")]
+#[nested_from_type(AIBattleSimulator)]
 pub struct AIBattleSimulatorIndication {
-    pub klass: &'static mut Il2CppClass,
-    monitor: *const u8,
-    pub fields: AIBattleSimulatorIndicationFields,
-}
-#[repr(C)]
-pub struct AIBattleSimulatorIndicationFields {
     pub power: i32,             // Standard SimplePower damage value
     pub skill_power: i32,       // Additional damage from a skill activation
     pub hit: f32,               // % chance of an attack resulting in a normal hit
@@ -59,25 +54,15 @@ pub struct AIBattleSimulatorIndicationFields {
     pub is_skill_kill: bool,    // Skill ignores protection effects?
 }
 
-#[repr(C)] // #[unity::class("App", "AIBattleSimulator.ChainAttackCandidate")]
+#[unity::class("", "ChainAttackCandidate")]
+#[nested_from_type(AIBattleSimulator)]
 pub struct AIBattleSimulatorChainAttackCandidate {
-    pub klass: &'static mut Il2CppClass,
-    monitor: *const u8,
-    pub fields: AIBattleSimulatorChainAttackCandidateFields,
-}
-#[repr(C)]
-pub struct AIBattleSimulatorChainAttackCandidateFields {
     pub side: Option<&'static BattleInfoSide>
 }
 
-#[repr(C)] // #[unity::class("App", "AIBattleSimulator.Break")]
+#[unity::class("","Break")]
+#[nested_from_type(AIBattleSimulator)]
 pub struct AIBattleSimulatorBreak {
-    pub klass: &'static mut Il2CppClass,
-    monitor: *const u8,
-    pub fields: AIBattleSimulatorBreakFields,
-}
-#[repr(C)]
-pub struct AIBattleSimulatorBreakFields {
     pub break_attack: f32,
     pub stun: f32,
 }

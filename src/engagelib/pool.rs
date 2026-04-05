@@ -1,27 +1,19 @@
-use unity::prelude::*;
 use unity::system::{List, Stack};
 
+#[unity::class("App", "Pool")]
+pub struct Pool {}
+
 // Derived Classes
-#[repr(C)] // #[unity::class("App", "Pool.List")]
+#[unity::class("", "List`1")]
+#[nested_from_type(Pool)]
 pub struct PoolList<T: 'static> {
-    pub klass: &'static mut Il2CppClass,
-    monitor: *const u8,
-    pub fields: PoolListFields<T>,
-}
-#[repr(C)]
-pub struct PoolListFields<T: 'static> {
     pub list: &'static mut List<T>,
     pub stack: &'static mut Stack<T>,
 }
 
-#[repr(C)] // #[unity::class("App", "Pool.Hierarchy")]
+#[unity::class("", "Hierarchy`1")]
+#[nested_from_type(Pool)]
 pub struct PoolHierarchy<T: 'static> {
-    pub klass: &'static mut Il2CppClass,
-    monitor: *const u8,
-    pub fields: PoolHierarchyFields<T>,
-}
-#[repr(C)]
-pub struct PoolHierarchyFields<T: 'static> {
     pub pool: &'static mut Stack<T>,
     pub used: &'static mut Stack<T>
 }

@@ -145,14 +145,9 @@ pub struct MapBattleInfoSequenceAttack {
 }
 
 // Derived Classes
-#[repr(C)] // #[unity::class("App", "MapBattleInfoSequence.AttackInfo")]
+#[unity::class("", "Info")]
+#[nested_from_type(MapBattleInfoSequenceAttack)]
 pub struct MapBattleInfoSequenceAttackInfo {
-    pub klass: &'static mut Il2CppClass,
-    monitor: *const u8,
-    pub fields: MapBattleInfoSequenceAttackInfoFields,
-}
-#[repr(C)]
-pub struct MapBattleInfoSequenceAttackInfoFields {
     pub side_type: BattleSideType,
     pub dead_side: BattleSideType,
     pub offense_result: MapBattleInfoSequenceAttackInfoSceneResult,

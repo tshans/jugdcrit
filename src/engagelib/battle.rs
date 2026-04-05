@@ -175,181 +175,106 @@ pub struct BattleSide { }
 
 // Derived Classes
 // BattleCalculator derived classes
-#[repr(C)] // #[unity::class("App", "BattleCalculator.FlagField")]
+#[unity::class("", "FlagField")]
+#[nested_from_type(BattleCalculator)]
 pub struct BattleCalculatorFlagField {
-    pub klass: &'static mut Il2CppClass,
-    monitor: *const u8,
-    pub fields: BattleCalculatorFlagFieldFields,
-}
-#[repr(C)]
-pub struct BattleCalculatorFlagFieldFields {
     pub sup: BitFieldTemplate32Fields<BattleCalculatorFlags>,
 }
 
-#[repr(C)] // #[unity::class("App", "BattleCalculator.Order")]
+#[unity::class("", "Order")]
+#[nested_from_type(BattleCalculator)]
 pub struct BattleCalculatorOrder {
-    pub klass: &'static mut Il2CppClass,
-    monitor: *const u8,
-    pub fields: BattleCalculatorOrderFields,
-}
-#[repr(C)]
-pub struct BattleCalculatorOrderFields {
     pub side: &'static BattleSideType,
 }
 
-#[repr(C)] // #[unity::class("App", "BattleCalculator.OrderList")]
+#[unity::class("", "OrderList")]
+#[nested_from_type(BattleCalculator)]
 pub struct BattleCalculatorOrderList {
-    pub klass: &'static mut Il2CppClass,
-    monitor: *const u8,
-    pub fields: BattleCalculatorOrderListFields,
-}
-#[repr(C)]
-pub struct BattleCalculatorOrderListFields {
     pub sup: PoolList<BattleCalculatorOrder>,
 }
 
-#[repr(C)] // #[unity::class("App", "BattleCalculator.HitSkill")]
+#[unity::class("", "HitSkill")]
+#[nested_from_type(BattleCalculator)]
 pub struct BattleCalculatorHitSkill {
-    pub klass: &'static mut Il2CppClass,
-    monitor: *const u8,
-    pub fields: BattleCalculatorHitSkillFields,
-}
-#[repr(C)]
-pub struct BattleCalculatorHitSkillFields {
     pub side: &'static BattleInfoSide,
     pub action: i32,
     pub skill: &'static SkillData,
 }
 
-#[repr(C)] // #[unity::class("App", "BattleCalculator.HitSkillPool")]
+#[unity::class("", "HitSkilPool")]
+#[nested_from_type(BattleCalculator)]
 pub struct BattleCalculatorHitSkillPool {
-    pub klass: &'static mut Il2CppClass,
-    monitor: *const u8,
-    pub fields: BattleCalculatorHitSkillPoolFields,
-}
-#[repr(C)]
-pub struct BattleCalculatorHitSkillPoolFields {
     pub sup: PoolList<BattleCalculatorHitSkill>,
 }
 
 
 // BattleInfo derived classes
-#[repr(C)] // #[unity::class("App", "BattleInfo.BattleInfoSideArray")]
+#[unity::class("", "BattleInfoSideArray")]
+#[nested_from_type(BattleInfo)]
 pub struct BattleInfoSideArray {
-    pub klass: &'static mut Il2CppClass,
-    monitor: *const u8,
-    pub fields: BattleInfoSideArrayFields,
-}
-#[repr(C)]
-pub struct BattleInfoSideArrayFields {
     pub sup: BattleSideContainerArrayFields<BattleInfoSide>
 }
 
-#[repr(C)] // #[unity::class("App", "BattleInfo.FlagField")]
+#[unity::class("", "FlagField")]
+#[nested_from_type(BattleInfo)]
 pub struct BattleInfoFlagField {
-    pub klass: &'static mut Il2CppClass,
-    monitor: *const u8,
-    pub fields: BattleInfoFlagFieldFields,
-}
-#[repr(C)]
-pub struct BattleInfoFlagFieldFields {
     pub sup: BitFieldTemplate32Fields<BattleInfoFlags>
 }
 
-#[repr(C)] // #[unity::class("App", "BattleInfo.SupportList")]
+#[unity::class("", "SupportList")]
+#[nested_from_type(BattleInfo)]
 pub struct BattleInfoSupportList {
-    pub klass: &'static mut Il2CppClass,
-    monitor: *const u8,
-    pub fields: BattleInfoSupportListFields,
-}
-#[repr(C)]
-pub struct BattleInfoSupportListFields {
     pub sup: List<BattleInfoSupportData>,
     pub offense: &'static Unit,
     pub defense: &'static Unit,
     pub compare: u64
 }
 
-#[repr(C)] // #[unity::class("App", "BattleInfo.SupportData")]
+#[unity::class("", "SupportData")]
+#[nested_from_type(BattleInfo)]
 pub struct BattleInfoSupportData {
-    pub klass: &'static mut Il2CppClass,
-    monitor: *const u8,
-    pub fields: BattleInfoSupportDataFields,
-}
-#[repr(C)]
-pub struct BattleInfoSupportDataFields {
     pub unit: &'static Unit,
     pub status: BattleInfoSideStatus,
 }
 
 
 // BattleInfoSide derived classes
-#[repr(C)] // #[unity::class("App", "BattleInfoSide.BitFieldStatus")]
+#[unity::class("", "BitFieldStatus")]
+#[nested_from_type(BattleInfoSide)]
 pub struct BattleInfoSideBitFieldStatus {
-    pub klass: &'static mut Il2CppClass,
-    monitor: *const u8,
-    pub fields: BattleInfoSideBitFieldStatusFields,
-}
-#[repr(C)]
-pub struct BattleInfoSideBitFieldStatusFields {
     pub sup: BitFieldTemplate32Fields<BattleInfoSideStatus>,
 }
 
 
 // BattleScene derived classes
-#[repr(C)] // #[unity::class("App", "BattleScene.FieldResult")]
+#[unity::class("", "FieldResult")]
+#[nested_from_type(BattleScene)]
 pub struct BattleSceneFieldResult {
-    pub klass: &'static mut Il2CppClass,
-    monitor: *const u8,
-    pub fields: BattleSceneFieldResultFields,
-}
-#[repr(C)]
-pub struct BattleSceneFieldResultFields {
     pub sup: BitFieldTemplate32Fields<BattleSceneResult>,
 }
 
 // BattleSide derived classes
-#[repr(C)] // #[unity::class("App", "BattleSide.ContainerArray`1")]
+#[unity::class("", "ContainerArray`1")]
+#[nested_from_type(BattleSide)]
 pub struct BattleSideContainerArray<T: 'static> {
-    pub klass: &'static mut Il2CppClass,
-    monitor: *const u8,
-    pub fields: BattleSideContainerArrayFields<T>,
-}
-#[repr(C)]
-pub struct BattleSideContainerArrayFields<T: 'static> {
     pub array: &'static mut Array<&'static T>,
 }
 
-#[repr(C)] // #[unity::class("App", "BattleSide.StructArray`1")]
+#[unity::class("", "StructArray`1")]
+#[nested_from_type(BattleSide)]
 pub struct BattleSideStructArray<T: 'static> {
-    pub klass: &'static mut Il2CppClass,
-    monitor: *const u8,
-    pub fields: BattleSideStructArrayFields<T>,
-}
-#[repr(C)]
-pub struct BattleSideStructArrayFields<T: 'static> {
     pub array: &'static Array<T>,
 }
 
-#[repr(C)] // #[unity::class("App", "BattleSide.SbyteArray")]
+#[unity::class("", "SbyteArray")]
+#[nested_from_type(BattleSide)]
 pub struct BattleSideSbyteArray {
-    pub klass: &'static mut Il2CppClass,
-    monitor: *const u8,
-    pub fields: BattleSideSbyteArrayFields,
-}
-#[repr(C)]
-pub struct BattleSideSbyteArrayFields {
     pub sup: BattleSideStructArrayFields<i8>,
 }
 
-#[repr(C)] // #[unity::class("App", "BattleSide.ShortArray")]
+#[unity::class("", "ShortArray")]
+#[nested_from_type(BattleSide)]
 pub struct BattleSideShortArray {
-    pub klass: &'static mut Il2CppClass,
-    monitor: *const u8,
-    pub fields: BattleSideShortArrayFields,
-}
-#[repr(C)]
-pub struct BattleSideShortArrayFields {
     pub sup: BattleSideStructArrayFields<i16>,
 }
 

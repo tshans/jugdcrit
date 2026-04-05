@@ -69,14 +69,9 @@ pub struct CombatGaugeController {
 }
 
 // Derived Classes
-#[repr(C)] // #[unity::class("", "CombatGaugeController.Value")]
+#[unity::class("", "Value")]
+#[nested_from_type(CombatGaugeController)]
 pub struct CombatGaugeControllerValue {
-    pub klass: &'static mut Il2CppClass,
-    monitor: *const u8,
-    pub fields: CombatGaugeControllerValueFields,
-}
-#[repr(C)]
-pub struct CombatGaugeControllerValueFields {
     pub root: &'static GameObject,
     pub text: &'static TextMeshProUGUI,
 }

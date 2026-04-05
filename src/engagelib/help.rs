@@ -117,14 +117,9 @@ pub struct HelpParamSetter {
 
 
 // Derived Classes
-#[repr(C)]
+#[unity::class("", "Item")]
+#[nested_from_type(HelpManager)]
 pub struct HelpManagerItem {
-    pub klass: &'static mut Il2CppClass,
-    monitor: *const u8,
-    pub fields: HelpManagerItemFields,
-}
-#[repr(C)]
-pub struct HelpManagerItemFields {
     pub slf: &'static HelpItemBase,
     pub pos: Vector2,
     pub dir_line: &'static Array<&'static Array<Vector2>>,
